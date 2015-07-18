@@ -1,0 +1,58 @@
+<html>
+<head>
+<script src="mqttws31.js"></script>
+<title>mqtt status</title>
+</head>
+
+<body>
+<div id="status">connecting...</div>
+</body>
+
+<script type="text/javascript">
+
+// Create a client instance
+//client = new Paho.MQTT.Client('192.168.1.203', Number(9001), "pizzapi-"+ Math.random());
+client = new Paho.MQTT.Client('99.45.10.156', Number(9001), "pizzapi-"+ Math.random());
+
+// set callback handlers
+client.onConnectionLost = onConnectionLost;
+client.onMessageArrived = onMessageArrived;
+
+// connect the client
+client.connect({
+	onSuccess:onConnect,
+	userName: "pizzapi",
+	password: "m0298s09"
+});
+
+
+// called when the client connects
+function onConnect() {
+  // Once a connection has been made, make a subscription and send a message.
+  var status = document.getElementById("status");
+  console.log("onConnect");
+  status.innerHTML = "onConnect";
+  client.subscribe("pizzapi/mems/#");
+  //message = new Paho.MQTT.Message("Hello");
+  //message.destinationName = "/World";
+  //client.send(message); 
+}
+
+// called when the client loses its connection
+function onConnectionLost(responseObject) {
+  if (responseObject.errorCode !== 0) {
+    var status = document.getElementById("status");
+    console.log("onConnectionLost:"+responseObject.errorMessage);
+    status.innerHTML = "onConnectionLost:"+responseObject.errorMessage;
+  }
+}
+
+// called when a message arrives
+function onMessageArrived(message) {
+  var status = document.getElementById("status");
+  console.log("onMessageArrived:"+message.payloadString);
+  status.innerHTML = "onMessageArrived:"+message.payloadString;
+}
+
+</script>
+</html>
