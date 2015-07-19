@@ -55,7 +55,9 @@ function onConnectionLost(responseObject) {
 
 // called when a message arrives
 function onMessageArrived(message) {
-  var status = document.getElementById("status");
+  var gps = document.getElementById("gps");
+  var accel = document.getElementById("accel");
+  var temp = document.getElementById("temp");
   if (message.destinationName == 'pizzapi/mems/temp') {
     status.innerHTML = "Message: "+message.payloadString+"<br>Destination: "+message.destinationName;
   } else if (message.destinationName == 'pizzapi/mems/mma8491q') {
