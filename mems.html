@@ -6,6 +6,12 @@
 
 <body>
 <div id="status">connecting...</div>
+
+<div id ="gps"></div>
+<div id="accel"></div>
+<div id="temp"></div>
+
+
 </body>
 
 <script type="text/javascript">
@@ -50,8 +56,13 @@ function onConnectionLost(responseObject) {
 // called when a message arrives
 function onMessageArrived(message) {
   var status = document.getElementById("status");
-  console.log("onMessageArrived:"+message.payloadString);
-  status.innerHTML = "Message: "+message.payloadString+"<br>Destination: "+message.destinationName;
+  if (message.destinationName == 'pizzapi/mems/temp') {
+    status.innerHTML = "Message: "+message.payloadString+"<br>Destination: "+message.destinationName;
+  } else if (message.destinationName == 'pizzapi/mems/mma8491q') {
+    status.innerHTML = "Message: "+message.payloadString+"<br>Destination: "+message.destinationName;
+  } else if (message.destinationName == 'pizzapi/mems/l80gps') {
+    status.innerHTML = "Message: "+message.payloadString+"<br>Destination: "+message.destinationName;
+  }
 }
 
 </script>
