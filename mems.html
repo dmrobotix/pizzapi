@@ -59,11 +59,11 @@ function onMessageArrived(message) {
   var accel = document.getElementById("accel");
   var temp = document.getElementById("temp");
   if (message.destinationName == 'pizzapi/mems/temp') {
-    status.innerHTML = "Message: "+message.payloadString+"<br>Destination: "+message.destinationName;
+    temp.innerHTML = "Message: "+message.payloadString+"<br>Destination: "+message.destinationName;
   } else if (message.destinationName == 'pizzapi/mems/mma8491q') {
-    status.innerHTML = "Message: "+message.payloadString+"<br>Destination: "+message.destinationName;
+    accel.innerHTML = "Message: "+message.payloadString+"<br>Destination: "+message.destinationName;
   } else if (message.destinationName == 'pizzapi/mems/l80gps') {
-    status.innerHTML = "Message: "+message.payloadString+"<br>Destination: "+message.destinationName;
+    gps.innerHTML = "Message: "+message.payloadString+"<br>Destination: "+message.destinationName;
   }
 }
 
