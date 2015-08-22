@@ -1,0 +1,46 @@
+/*
+ * PizzaPi CSS
+ * Copyright 2015, Margot Paez. All rights reserved.
+ */
+
+.logo {
+	font-weight: bold;
+	font-family: Arial;
+	color: #fff;
+}
+.logo-color {
+	color: #ff0000;
+}
+
+.form2 {
+	display:none;
+}
+
+.order-confirm {
+	background-color: rgba(0,0,0,0.87);
+}
+
+.order-confirm h2 {
+	color: #fff;
+}
+
+.order-confirm .well {
+	background-color: #fff;
+}
+
+.order-confirm h2 {
+	margin-top:0;
+}
+
+.order-confirm .row {
+	background-color: #fff;
+}
+
+.black {
+	background-color: #000;
+	color: #fff;
+}
+
+.well-bottom {
+	margin-bottom:0;
+}
