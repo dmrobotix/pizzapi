@@ -7,7 +7,15 @@
 ?>
 
 
-			
+			<script>
+				var map;
+				function initMap() {
+				  map = new google.maps.Map(document.getElementById('map-all'), {
+				    center: {lat: -34.397, lng: 150.644},
+				    zoom: 12
+				  });
+				}
+			</script>
 			<div class="row">
 				<div class="col-md-7 col-md-offset-2">
 					<div class="row">
@@ -36,9 +44,7 @@
 								    <h3 class="panel-title">Track Deliveries</h3>
 								  </div>
 								  <div class="panel-body">
-								    <img class="img-responsive" src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=640x640&scale=2&maptype=roadmap
-&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-&markers=color:red%7Clabel:C%7C40.718217,-73.998284">
+								    <div id="map-all" style="height:400px"></div>
 								  </div>
 								  <div class="panel-footer"></div>
 								</div>
@@ -47,3 +53,4 @@
 					
 				</div>
 			</div>
+			<script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>

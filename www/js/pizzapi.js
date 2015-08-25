@@ -44,6 +44,21 @@ $(document).ready(function() {
 		$(".form2").fadeIn(1000);
 	});
 	
+	
+	$('.content').on ('click', '#gps', function() {
+		var orderid = $(this).attr('data-id');
+		$.get("maps-display.php", {orderid: orderid}, function(ajaxresult) {
+			var coords = ajaxresult;		
+			coords = coords.split(" ");
+			var lat = parseFloat(coords[0]);
+			var lng = parseFloat(coords[1]);
+			console.log(lat);
+			console.log(lng);
+			loadMap(lat,lng);
+			
+		});
+	  });
+	
 	// fix phone number
 	/*
 	 var format = [{"mask": "(###) ###-####"}];

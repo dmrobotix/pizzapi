@@ -83,6 +83,3 @@
 	    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ-CPpmZ7OEtBGF8o82Ps0V3R1S36kqIw&callback=initMap">
 	    </script>
 		
-		
-	</body>
-</html>
